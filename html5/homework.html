@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>HTML5 Homework</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="css/site.css" />
+</head>
+<body>
+    <form action="#" method="post">
+        <div class="input-form">
+            <fieldset>
+                <legend>个 人 信 息</legend>
+                <div class="content-container">
+                    <label for="account">账号:</label>
+                    <input id="account" class="form-control" type="text" placeholder="请填写帐号" required>
+                    <label for="pwd">密码:</label>
+                    <input id="pwd" class="form-control" type="password" placeholder="请填写密码" required>
+                    <label for="cfmPwd">重复密码:</label>
+                    <input id="cfmPwd" class="form-control" type="password" placeholder="请填写密码" required>
+                    <label for="email">邮箱地址:</label>
+                    <input id="email" class="form-control" type="email" placeholder="www.csdn.com" required>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>其 他 信 息</legend>
+                <div class="content-container">
+                    <label for="selfAddr">个人网址:</label>
+                    <input id="selfAddr" class="form-control" type="url" placeholder="http://www.example.com" required>
+                    <label for="age">年龄:</label>
+                    <input id="age" class="form-control" type="number" placeholder="填写年龄" min="1" required>
+                    <label for="salary">月薪:</label>
+                    <div class="salary-container">
+                        <input id="salary" class="form-control" type="range" value="10000" min="0" max="50000"><output id="output"></output>
+                    </div>
+                    <label for="desc">描述:</label>
+                    <textarea id="desc" class="form-control" placeholder="这里是详细描述"></textarea>
+                </div>
+            </fieldset>
+        </div>
+        <div class="input-form">
+            <input type="submit" value="提交">
+        </div>
+    </form>
+
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            updateOutput();
+            $("#salary").on("input", null, null, updateOutput);
+        })
+
+        function updateOutput() {
+            var salary = $("#salary").val();
+            $("#output").text(salary);
+        }
+    </script>
+</body>
+</html>
